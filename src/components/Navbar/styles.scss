@@ -1,0 +1,48 @@
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+    background-color: #fcfcfc;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-logo {
+    height: 60px;
+    width: 60px;
+    display: inline;
+  }
+  
+  .nav-logo:hover {
+    cursor: pointer;
+  }
+
+  .nav-item {
+    display: inline;
+    margin-left: 2rem;
+    color: #333;
+  }
+
+  .nav-item:hover {
+    color: black;
+    cursor: pointer;
+  }
+
+  .nav .nav-content {
+    width: 100%;
+    padding: 0rem 3rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+.welcomeLink{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 52px;
+    color:#3676fb;
+    text-align: left;
+    font-weight: 600;
+  }
