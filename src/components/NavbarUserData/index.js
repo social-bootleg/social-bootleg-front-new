@@ -27,10 +27,10 @@ export default class NavbarUserData extends Component {
               <li className="nav-item">
             <Link
                 activeClass="active"
-                to="postsStats"
+                to="posts_stats"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={0}
                 duration={500}
               >
                 Statystyki postów
