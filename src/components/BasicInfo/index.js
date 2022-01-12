@@ -1,14 +1,15 @@
 import index from '../../app/json/index.json'
 import React from 'react';
+import './style.scss'
 
 function BasicInfo(props) {
     const info = index.map(item => 
-        <div>
-            <p>Witaj {item.name}!</p>
-        <table>
-            <tr><td>Twoja liczba obserwujących</td><td>{item.followers}</td></tr> 
-            <tr><td>Liczba osób, które obserwujesz</td><td>{item.following}</td></tr> 
-        </table>
+        <div className='table'>
+            <div className='card'>Witaj {item.name}</div>
+        <div className='row'>
+            <div className='column'><div className="card"><p><strong>Twoja liczba obserwujących</strong></p><p>{item.followers}</p></div></div>
+            <div className='column'><div className='card'><p><strong>Liczba osób, które obserwujesz</strong></p><p>{item.following}</p></div> </div>
+        </div>
         </div>);
     return (<div className="engagement"> 
         {info}

@@ -2,7 +2,7 @@ import React from 'react';
 const EnterUser = props =>{
     return (
     <div>
-        Enter username to get started!
+        Po wpisaniu nazwy użytkownika, tu pojawią się statystyki!
     </div>
     );
 }

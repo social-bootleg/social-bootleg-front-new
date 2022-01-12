@@ -15,6 +15,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Engamement from "./components/Engagement";
 import EnterUser from "./components/EnterUser";
+import EnterTag from "./components/EnterTag";
+import RelatedTags from "./components/RelatedTags";
 import DataTable from "./components/DataTable";
 import CreateUser from "./components/CreateUser";
 import UpdateUser from "./components/UpdateUser";
@@ -25,12 +27,14 @@ import Loader from "./components/Loader";
 import MySwal from "./index";
 import UserData from "./components/UserData";
 import Navbar from "./components/Navbar";
+import HashtagSearch from "./components/HashtagSearch";
 
 function App() {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users);
   const [tags, setTags] = useState(false);
   const [userData, setUserData] = useState(false);
+  const [hashtagData, setHashtagData] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({
@@ -55,24 +59,13 @@ function App() {
   // Search
   const search = term => {
     setUserData(true);
-
-    // if (term.length > 2) {
-    //   setCurrentPage(1);
-
-    //   const results = savedUsers.filter(user =>
-    //     Object.keys(user).some(key =>
-    //       user[key]
-    //         .toString()
-    //         .toLowerCase()
-    //         .includes(term.toString().toLowerCase())
-    //     )
-    //   );
-
-    //   dispatch({ type: "SET_USERS", data: results });
-    // } else if (!term.length) {
-    //   dispatch({ type: "SET_USERS", data: savedUsers });
-    // }
   };
+
+   // Tag search
+   const tagSearch = term => {
+    setHashtagData(true);
+  };
+
 
   // Fetch Users
   const fetchUsers = async () => {
@@ -105,15 +98,21 @@ function App() {
       <Header />
       <main className="content">
         <div className="container">
-          <div className="content-wrapper">
+          <div className="content-wrapper" id="section1" >
             <Search search={search}/>
-          </div>
-          <div id="section1">
+          <div >
           {
             userData ? (<UserData />) : (<EnterUser />)
           }
           </div>
-          <Search search={search} resetSearch={search} />
+          </div>
+          <div className="content-wrapper" id="section2">
+          <p>Wpisz frazę, do której chcesz dobrać pasujące tagi</p>
+          <HashtagSearch search={tagSearch}/>
+          {
+            hashtagData ? (<RelatedTags/>) : (<EnterTag/>)
+          }
+          </div>
         </div>
       </main>
       )

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // Styles
 import "./style.scss";
 
-const Search = props => {
+const HashtagSearch = props => {
   const [searchTerm, setSearchTerm] = useState("");
   const [toggleReset, setToggleReset] = useState(false);
 
@@ -35,7 +35,7 @@ const Search = props => {
 
   return (
     <div>
-      <p>SPRAWDŹ SWÓJ PROFIL</p>
+      <p>DOBIERZ TAGI</p>
     <form
       className="search-form"
       onSubmit={event => {
@@ -44,15 +44,20 @@ const Search = props => {
       <div className="form-group">
         <input
           type="text"
-          placeholder="Wpisz nazwę uzytkownika"
+          placeholder="#hashtag"
           onChange={onInputChange}
           value={searchTerm}
         />
-        <button className="primary-btn">Search</button>
+        <button className="primary-btn">Dobierz tagi!</button>
       </div>
+      {toggleReset && (
+        <span className="reset-search-btn" onClick={handleSearchReset}>
+          Reset Search <strong>X</strong>
+        </span>
+      )}
     </form>
     </div>
   );
 };
 
-export default Search;
+export default HashtagSearch;
