@@ -12,7 +12,6 @@ function Engamement(props) {
                 <div className='engagementColumn'><div className='engagementCard'>Zaangażowanie odbiorców: {item.engagement} %</div></div>
             </div>
         </div>);
-    // <ListItem key ={title} value={value} />);
     return (<div className="engagement"> 
         {eng}
     </div>);

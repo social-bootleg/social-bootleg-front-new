@@ -6,9 +6,11 @@ import TopPosts from "../TopPosts";
 import GhostFollowers from "../GhostFollowers";
 import NavbarUserData from "../NavbarUserData";
 import UnansweredComments from "../UnansweredComments";
+import './style.scss'
 const UserData = props => {
     return (
         <div className="container">
+            <p className="report">Raport o Twoim koncie:</p>
             <BasicInfo />
             <NavbarUserData/>
             <Engamement />

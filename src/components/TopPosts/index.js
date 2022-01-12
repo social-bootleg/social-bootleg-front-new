@@ -25,7 +25,11 @@ function TopPosts(props) {
             <p>Najbardziej lubiane posty</p> 
             <p>Poniżej znajdziesz listę postów, które są najczęściej lajkowane i komentowane.
             Przeanalizuj, co fajnego udało Ci się w nich stworzyć, aby powtórzyć sukces!</p>
-            {topPosts}
+            <details>
+                <summary>Rozwiń listę postów</summary>
+                {topPosts}
+            </details>
+           
         </div>);
 }
 export default TopPosts;

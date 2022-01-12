@@ -12,14 +12,8 @@ export default class Navbar extends Component {
     return (
       <nav className="nav" id="navbar">
         <div className="nav-content">
-          <img
-            src={logo}
-            className="nav-logo"
-            alt="Logo."
-            onClick={this.scrollToTop}
-          />
           <div className="welcomeMessage">
-        <a href="/" className="welcomeLink">
+        <a href="/" className="welcomeLink" onClick={this.scrollToTop}>
           Social Bootleg
         </a>
         </div>
