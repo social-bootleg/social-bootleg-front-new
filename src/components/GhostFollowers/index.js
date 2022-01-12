@@ -3,14 +3,9 @@ import React from 'react';
 
 function GhostFollowers(props) {
     const ghosts = ghost_followers.map(item =>
-        <div>
-            <table>
-                <tr>
-                    <td>{item.user == '' ? item.username : item.user}</td><td><a href="http://instagram.com/{item.username}">http://instagram.com/{item.username}</a></td>
-                </tr>
-            </table>
-
-        </div>);
+        <tr class="row100 body">
+            <td class="cell100 column1">{item.user == '' ? item.username : item.user}</td><td class="cell100 column2"><a href="http://instagram.com/{item.username}">http://instagram.com/{item.username}</a></td>
+        </tr>);
     // <ListItem key ={title} value={value} />);
     return (
         <div className="ghostFollowers" id="ghostFollowers">
@@ -23,11 +18,27 @@ function GhostFollowers(props) {
                 </details>
                 <details>
                     <summary>Rozwiń listę</summary>
-                    {ghosts}
+                    <div class="container-table100">
+                        <div class="wrap-table100">
+                            <div class="table100 ver1 m-b-110">
+                                <div class="table100-head">
+                                    <table>
+                                        <thead>
+                                            <tr class="row100 head">
+                                                <th class="cell100 column1">Użytkownik</th>
+                                                <th class="cell100 column2">Link do profilu</th>
+                                            </tr>
+                                        </thead>
+                                        {ghosts}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </details>
-                </div>
-            
-            
+            </div>
+
+
         </div>);
 }
 export default GhostFollowers;

@@ -7,6 +7,7 @@ import GhostFollowers from "../GhostFollowers";
 import NavbarUserData from "../NavbarUserData";
 import UnansweredComments from "../UnansweredComments";
 import './style.scss'
+import PostsStats from "../PostsStats";
 const UserData = props => {
     return (
         <div className="container">
@@ -14,6 +15,7 @@ const UserData = props => {
             <BasicInfo />
             <NavbarUserData/>
             <Engamement />
+            <PostsStats/>
             <TopPosts/>
             <TopFans/>
             <GhostFollowers />

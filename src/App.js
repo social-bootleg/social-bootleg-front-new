@@ -41,14 +41,18 @@ function App() {
     search("");
     setActiveModal({ name: modal, active: true });
   };
-
+  const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
   // Search
-  const search = term => {
+  const search = async(term) => {
+    await sleep(2000);
     setUserData(true);
   };
 
    // Tag search
-   const tagSearch = term => {
+   const tagSearch = async(term) => {
+     await sleep(2000);
     setHashtagData(true);
   };
 
