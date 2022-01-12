@@ -1,3 +1,9 @@
+@font-face {
+  font-family: Questrial;
+  src: url(./fonts/Questrial-Regular.ttf);
+  font-weight: bold;
+}
+
 :root {
   --primary-color: #404040;
   --secondary-color: #4d4dff;
@@ -6,6 +12,7 @@
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
+
 
 html {
   box-sizing: border-box;
@@ -97,9 +104,11 @@ input {
 .content {
   min-height: 100vh;
   position: relative;
-  top: 200px;
   max-width: 1280px;
-  margin:auto;
+  align-items: center;
+  margin-top :auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 70px;
 }
 

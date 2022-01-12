@@ -44,17 +44,12 @@ const HashtagSearch = props => {
       <div className="form-group">
         <input
           type="text"
-          placeholder="#hashtag"
+          placeholder="Wpisz tu nazwę tagu (bez #), by dobrać pasujące"
           onChange={onInputChange}
           value={searchTerm}
         />
         <button className="primary-btn">Dobierz tagi!</button>
       </div>
-      {toggleReset && (
-        <span className="reset-search-btn" onClick={handleSearchReset}>
-          Reset Search <strong>X</strong>
-        </span>
-      )}
     </form>
     </div>
   );

@@ -5,8 +5,12 @@ import './styles.scss'
 export default class NavbarUserData extends Component {
   render() {
     return (
+        <div class="navHeader">
+            Przejdź do sekcji raportu:
       <div className="navUser">
+           
         <div className="nav-content">
+           
           <ul className="nav-items">
           <li className="nav-item">
             <Link
@@ -80,6 +84,7 @@ export default class NavbarUserData extends Component {
               </li>
           </ul>
         </div>
+      </div>
       </div>
     );
   }

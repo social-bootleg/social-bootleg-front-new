@@ -6,6 +6,7 @@ import './style.scss'
 function Engamement(props) {
     const eng = engagement.map(item => 
         <div className='engagementTable'>
+           <p>Zaangażowanie</p>
             <div className='engagementRow'>
                 <div className='engagementColumn'><div className='engagementCard'>Twoja liczba komentarzy: {item.comments}</div> </div>
                 <div className='engagementColumn'><div className='engagementCard'>Twoja liczba like'ów: <b>{item.likes}</b></div></div>

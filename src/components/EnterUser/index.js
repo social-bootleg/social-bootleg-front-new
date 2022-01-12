@@ -1,7 +1,8 @@
 import React from 'react';
+import './style.scss'
 const EnterUser = props =>{
     return (
-    <div>
+    <div class='enterUser'>
         Po wpisaniu nazwy użytkownika, tu pojawią się statystyki!
     </div>
     );

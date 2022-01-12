@@ -1,12 +1,18 @@
 .postsTable{
     border-radius: 5px;
     margin-bottom: 5px;
-    width: 550px;
+    align-items: center;
 }
 
-.column {
+.postColumn {
     float: left;
     width: 50%;
+  }
+  
+  .imageColumn {
+    float: left;
+    display: inline;
+    width: 500px;
   }
   
   /* Remove extra left and right margins, due to padding */
@@ -32,6 +38,7 @@
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
+    align-items: center;
     text-align: center;
     background-color: #f1f1f1;
   }

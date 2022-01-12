@@ -21,7 +21,11 @@ function UnansweredComments(props) {
                     <p>Dodatkowo - algorytm Instagrama promuje profile z większą aktywnością fanów.</p>
                 </details>
                 </div>
-            {comments}
+                <details>
+                    <summary>Rozwiń listę komentarzy</summary>
+                    {comments}
+                </details>
+            
         </div>);
 }
 export default UnansweredComments;

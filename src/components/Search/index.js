@@ -44,11 +44,11 @@ const Search = props => {
       <div className="form-group">
         <input
           type="text"
-          placeholder="Wpisz nazwę uzytkownika"
+          placeholder="Wpisz nazwę użytkownika, dla którego chcesz sporządzić raport"
           onChange={onInputChange}
           value={searchTerm}
         />
-        <button className="primary-btn">Search</button>
+        <button className="primary-btn">Generuj raport!</button>
       </div>
     </form>
     </div>

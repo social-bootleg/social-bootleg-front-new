@@ -93,7 +93,6 @@ function App() {
           </div>
           </div>
           <div className="content-wrapper" id="section2">
-          <p>Wpisz frazę, do której chcesz dobrać pasujące tagi</p>
           <HashtagSearch search={tagSearch}/>
           {
             hashtagData ? (<RelatedTags/>) : (<EnterTag/>)

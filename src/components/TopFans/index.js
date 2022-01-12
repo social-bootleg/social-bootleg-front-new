@@ -14,7 +14,7 @@ function TopFans(props) {
     return (
         <div className="topFans" id="topFans">
             <p>Top fani</p> 
-            <p>Poniżej znajdziesz listę osób, które komentują Twoje posty najczęściej. Nie zapomnij ich odwiedzić!</p>
+            <p className='tableText'>Poniżej znajdziesz listę osób, które komentują Twoje posty najczęściej. Nie zapomnij ich odwiedzić!</p>
             <details>
                 <summary>Rozwiń listę fanów</summary>
                 {tags}

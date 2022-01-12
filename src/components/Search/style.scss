@@ -1,12 +1,22 @@
+p{
+  font-family: Questrial;
+  text-align: center;
+  font-weight: 600;
+  font-size: 42px;
+}
+
 .search-form {
   position:relative;
   display: stretch;
+  width:90%;
   align-items: stretch;
+
   .primary-btn {
     margin-left: 10px;
   }
   .reset-search-btn {
     display: inline-flex;
+    align-self: right;
     align-items: center;
     margin-left: 15px;
     font-size: 14px;

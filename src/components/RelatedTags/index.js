@@ -5,7 +5,7 @@ import './styles.css'
 function RelatedTags(props) {
     const tags = related_tags.map(item =>
         <div className="tagCard">
-            <p>{item}</p>
+            <p className='tagText'>{item}</p>
         </div>);
     return (
         <div className="tags">
