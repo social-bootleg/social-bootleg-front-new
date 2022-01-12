@@ -67,6 +67,16 @@ export default class NavbarUserData extends Component {
               >
                 Komentarze bez odpowiedzi
               </Link>
+              <Link
+                activeClass="active"
+                to="ghostFollowers"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                Ghost followers
+              </Link>
               </li>
           </ul>
         </div>

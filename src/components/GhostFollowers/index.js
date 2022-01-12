@@ -13,15 +13,20 @@ function GhostFollowers(props) {
         </div>);
     // <ListItem key ={title} value={value} />);
     return (
-        <div className="ghostFollowers">
+        <div className="ghostFollowers" id="ghostFollowers">
             <div>
                 <details>
                     <summary>Czym są ghost followersi?</summary>
                     Ghost followersi to takie osoby, które mimo obserwowania Twojego profilu nie podejmują z nim żadnych interakcji... <br></br>
                     Poniżej wyswietla się lista tych użytkownikow - zastanów się, jak mozesz przyciągnąć ich uwagę!
                 </details>
+                <details>
+                    <summary>Rozwiń listę</summary>
+                    {ghosts}
+                </details>
                 </div>
-            {ghosts}
+            
+            
         </div>);
 }
 export default GhostFollowers;

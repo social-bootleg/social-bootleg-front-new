@@ -1,18 +1,19 @@
-.engagementTable{
+.postsTable{
     border-radius: 5px;
     margin-bottom: 5px;
+    width: 550px;
 }
 
-.engagementColumn {
+.column {
     float: left;
-    width: 33%;
+    width: 50%;
   }
   
   /* Remove extra left and right margins, due to padding */
-  .engagementRow {margin: 0 }
+  .postRow {margin: 0; width: 500px;}
   
   /* Clear floats after the columns */
-  .engagementRow:after {
+  .postRow:after {
     content: "";
     display: table;
     clear: both;
@@ -20,7 +21,7 @@
   
   /* Responsive columns */
   @media screen and (max-width: 600px) {
-    .engagementColumn {
+    .column {
       width: 100%;
       display: block;
       margin-bottom: 20px;
@@ -28,12 +29,13 @@
   }
   
   /* Style the counter cards */
-  .engagementCard {
+  .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
   }
+
 details {
     border: 2px solid #aaa;
     border-radius: 4px;
@@ -55,3 +57,15 @@ details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: .5em;
 }
+
+.tagCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 1px 5px;
+    padding: 0px 3px;
+    display: inline-block;
+    flex-grow: 4;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: #f1f1f1;
+  }

@@ -1,11 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getUsers,
-  getCreatedUser,
-  getUpdatedUser,
-  getDeletedUser
-} from "./app/api";
 
 // Styles
 import "./app.scss";
@@ -13,18 +7,10 @@ import "./app.scss";
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Engamement from "./components/Engagement";
 import EnterUser from "./components/EnterUser";
 import EnterTag from "./components/EnterTag";
 import RelatedTags from "./components/RelatedTags";
-import DataTable from "./components/DataTable";
-import CreateUser from "./components/CreateUser";
-import UpdateUser from "./components/UpdateUser";
-import DeleteUser from "./components/DeleteUser";
-import Modal from "./components/Modal";
 import Search from "./components/Search";
-import Loader from "./components/Loader";
-import MySwal from "./index";
 import UserData from "./components/UserData";
 import Navbar from "./components/Navbar";
 import HashtagSearch from "./components/HashtagSearch";
@@ -67,30 +53,30 @@ function App() {
   };
 
 
-  // Fetch Users
-  const fetchUsers = async () => {
-    setLoading(true);
+  // // Fetch Users
+  // const fetchUsers = async () => {
+  //   setLoading(true);
 
-    try {
-      await getUsers().then(({ data }) => {
-        setSavedUsers(data.data);
-        dispatch({ type: "SET_USERS", data: data.data });
-      });
-    } catch (err) {
-      MySwal.fire({
-        icon: "error",
-        title: "Failed to fetch users."
-      });
-    } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    }
-  };
+  //   try {
+  //     await getUsers().then(({ data }) => {
+  //       setSavedUsers(data.data);
+  //       dispatch({ type: "SET_USERS", data: data.data });
+  //     });
+  //   } catch (err) {
+  //     MySwal.fire({
+  //       icon: "error",
+  //       title: "Failed to fetch users."
+  //     });
+  //   } finally {
+  //     setTimeout(() => {
+  //       setLoading(false);
+  //     }, 500);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  // useEffect(() => {
+  //   fetchUsers();
+  // }, []);
 
   return (
     <div className="app">
