@@ -30,7 +30,7 @@ export default class NavbarUserData extends Component {
                 to="posts_stats"
                 spy={true}
                 smooth={true}
-                offset={0}
+                offset={-70}
                 duration={500}
               >
                 Statystyki postów

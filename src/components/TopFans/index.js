@@ -14,12 +14,12 @@ function TopFans(props) {
             <p>Top fani</p>
             <p className='tableText'>Poniżej znajdziesz listę osób, które komentują Twoje posty najczęściej. Nie zapomnij ich odwiedzić!</p>
             <details>
+            <summary>Rozwiń listę fanów</summary>
                 <div class="container-table100">
                     <div class="wrap-table100">
                         <div class="table100 ver1 m-b-110">
                             <div class="table100-head">
                                 <table>
-                                    <summary>Rozwiń listę fanów</summary>
                                     <thead>
                                         <tr class="row100 head">
                                             <th class="cell100 column1">Użytkownik</th>
