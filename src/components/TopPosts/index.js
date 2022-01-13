@@ -1,8 +1,6 @@
 import top_posts from '../../app/json/mostlikedposts.json'
 import React from 'react';
 import './styles.css'
-import InstagramEmbed from 'react-instagram-embed';
-import photo from "../../img/posts/B1J2utxCvTr.jpg"
 
 function TopPosts(props) {
     const topPosts = top_posts.map(item =>
