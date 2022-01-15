@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Config } from "../../constants/constants";
 // Styles
 import "./style.scss";
 
@@ -9,6 +9,7 @@ const Search = props => {
 
   const onInputChange = event => {
     const value = event.target.value;
+    Config.USER = value;
     setSearchTerm(value);
     if (!value.length) {
       props.search(value);

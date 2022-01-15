@@ -1,21 +1,29 @@
 import axios from "axios";
-import engagement from './json/engagement.json'
-const apiURL = "http://localhost:5000/"
-const useJson = true;
+import engagementJSON from './json/engagement.json'
+import { Config } from "../constants/constants";
+const { apiURL, endpoints: { engagement } } = Config;
 
 function getUsers() {
   const response = axios.get(`${apiURL}/users`);
 
   return response;
 }
-function getEngagement(user){
-  return engagement;
-  if (useJson){
-   return "{\"comments\":\"109\",\"engagement\":\"10.16\",\"likes\":\"3063\"}";
+
+async function getEngagement(user) {
+  try {
+    const { data } = await axios.post(`${apiURL}${engagement}`, JSON.stringify({ username: user }), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    data.engagement = (+data.engagement).toFixed(2);
+    return data;
+  } catch (error) {
+    console.error(`${getEngagement.name} error: ${error}`)
+    return engagementJSON;
   }
-  else{
-    return axios.post(`${apiURL}/users`, {username : user})
-  }
+
 }
 function getCreatedUser({ first_name, last_name, email }) {
   const response = axios.post(`${apiURL}/users`, {

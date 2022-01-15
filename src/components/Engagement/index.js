@@ -1,20 +1,31 @@
-import {getEngagement} from '../../app/api';
-import engagement from '../../app/json/engagement.json'
-import React from 'react';
+import { getEngagement } from '../../app/api';
+import React, { useEffect, useState } from 'react';
 import './style.scss'
+import { Config } from '../../constants/constants';
 
 function Engamement(props) {
-    const eng = engagement.map(item => 
+    const [engagement, setEngagement] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await getEngagement(Config.USER);
+                setEngagement(res);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
+    return (
         <div className='engagementTable'>
-           <p>Zaangażowanie</p>
+            <p>Zaangażowanie</p>
             <div className='engagementRow'>
-                <div className='engagementColumn'><div className='engagementCard'>Twoja liczba komentarzy: {item.comments}</div> </div>
-                <div className='engagementColumn'><div className='engagementCard'>Twoja liczba like'ów: <b>{item.likes}</b></div></div>
-                <div className='engagementColumn'><div className='engagementCard'>Zaangażowanie odbiorców: {item.engagement} %</div></div>
+                <div className='engagementColumn'><div className='engagementCard'>Twoja liczba komentarzy: {engagement.comments}</div> </div>
+                <div className='engagementColumn'><div className='engagementCard'>Twoja liczba like'ów: <b>{engagement.likes}</b></div></div>
+                <div className='engagementColumn'><div className='engagementCard'>Zaangażowanie odbiorców: {engagement.engagement} %</div></div>
             </div>
         </div>);
-    return (<div className="engagement"> 
-        {eng}
-    </div>);
 }
+
 export default Engamement;
