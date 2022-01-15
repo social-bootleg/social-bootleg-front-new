@@ -1,7 +1,8 @@
 import axios from "axios";
 import engagementJSON from './json/engagement.json'
+import postsStatsJSON from './json/posts_stats.json'
 import { Config } from "../constants/constants";
-const { apiURL, endpoints: { engagement } } = Config;
+const { apiURL, endpoints: { engagement, postStats } } = Config;
 
 function getUsers() {
   const response = axios.get(`${apiURL}/users`);
@@ -53,4 +54,22 @@ function getDeletedUser(id) {
   return response;
 }
 
-export { getEngagement, getUsers, getCreatedUser, getUpdatedUser, getDeletedUser };
+const getPostsStats = async (user) => {
+  try {
+    const { data } = await axios.post(
+      `${apiURL}${postStats}`,
+      JSON.stringify({ username: user }),
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+    return data;
+  } catch (error) {
+    console.error(`${getPostsStats.name} error: ${error}`)
+    return postsStatsJSON;
+  }
+}
+
+export { getEngagement, getUsers, getCreatedUser, getUpdatedUser, getDeletedUser, getPostsStats };

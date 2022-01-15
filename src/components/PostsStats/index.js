@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.scss'
-import posts_stats from '../../app/json/posts_stats.json'
+import { Config } from '../../constants/constants';
+import { getPostsStats } from '../../app/api'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -23,22 +24,36 @@ ChartJS.register(
 
 
 function PostsStats(props) {
+    const [stats, setStats] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await getPostsStats(Config.USER);
+                setStats(res);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
+
     const labels = [];
     const likes = [];
     const comments = [];
     const options = {
         responsive: true,
         plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Statystyki postów wstawianych w dane dni',
-          },
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Statystyki postów wstawianych w dane dni',
+            },
         },
-      };
-      
+    };
+
     const plotData = {
         labels,
         datasets: [
@@ -50,21 +65,24 @@ function PostsStats(props) {
             {
                 label: 'Komentarze',
                 data: comments,
-                backgroundColor: 'rgba(53, 162, 235, 0.5)',          
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
             }
 
         ]
     };
 
-    posts_stats.map(item => labels.push(item.date));
-    posts_stats.map(item => likes.push(item.likes));
-    posts_stats.map(item => comments.push(item.comments));
+    stats.map(item => {
+        labels.push(item.date)
+        likes.push(item.likes)
+        comments.push(item.comments)
+    });
+
 
     return (<div className="posts_stats" id="posts_stats">
         <p>Statystyki postów</p>
         <details>
             <summary>Rozwiń wykres ze statystykami</summary>
-            <Bar options={options} data={plotData}/>
+            <Bar options={options} data={plotData} />
         </details>
     </div>);
 }
