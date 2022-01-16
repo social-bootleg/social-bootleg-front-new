@@ -1,9 +1,24 @@
-import topFans from '../../app/json/top_fans.json'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Config } from '../../constants/constants';
+import { getTopFans } from '../../app/api'
 
 import './styles.css'
 
 function TopFans(props) {
+    const [topFans, setFans] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await getTopFans(Config.USER);
+                setFans(res);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
+
     const tags = topFans.map(item =>
         <tr class="row100 body">
             <td class="cell100 column1">{item[0]}</td> <td class="cell100 column2">{item[1]}</td>

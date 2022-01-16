@@ -4,6 +4,7 @@ export const Config = {
   endpoints: {
     engagement: '/engagement',
     postStats: '/posts_stats',
-    mostLikedPosts: '/mostlikedposts'
+    mostLikedPosts: '/mostlikedposts',
+    topFans: '/top_fans'
   }
 }
