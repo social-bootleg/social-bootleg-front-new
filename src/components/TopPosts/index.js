@@ -1,13 +1,29 @@
-import top_posts from '../../app/json/mostlikedposts.json'
-import React from 'react';
+// import top_posts from '../../app/json/mostlikedposts.json'
+import React, { useEffect, useState } from 'react';
+import { getMostLikedPosts } from '../../app/api'
+import { Config } from '../../constants/constants';
 import './styles.css'
 
 function TopPosts(props) {
-    const topPosts = top_posts.map(item =>
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await getMostLikedPosts(Config.USER);
+                setPosts(res);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
+
+    const topPosts = posts.map(item =>
         <li className="zoom-on-hover">
             <a href={item.picture_url}>
                 <div className="postImage">
-                    <img src={item.filename}/>
+                    <img src={item.picture_url}/>
                     <div className="caption">
                         <h2>Polubienia: {item.likes} Komentarze: {item.comments}</h2>
                     </div>

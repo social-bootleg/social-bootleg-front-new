@@ -1,8 +1,9 @@
 import axios from "axios";
 import engagementJSON from './json/engagement.json'
 import postsStatsJSON from './json/posts_stats.json'
+import mostLikedPostsJSON from './json/mostlikedposts.json'
 import { Config } from "../constants/constants";
-const { apiURL, endpoints: { engagement, postStats } } = Config;
+const { apiURL, endpoints: { engagement, postStats, mostLikedPosts } } = Config;
 
 function getUsers() {
   const response = axios.get(`${apiURL}/users`);
@@ -72,4 +73,22 @@ const getPostsStats = async (user) => {
   }
 }
 
-export { getEngagement, getUsers, getCreatedUser, getUpdatedUser, getDeletedUser, getPostsStats };
+const getMostLikedPosts = async (user) => {
+  try {
+    const { data } = await axios.post(
+      `${apiURL}${mostLikedPosts}`,
+      JSON.stringify({ username: user }),
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+    return data;
+  } catch (error) {
+    console.error(`${getMostLikedPosts.name} error: ${error}`)
+    return mostLikedPostsJSON;
+  }
+}
+
+export { getEngagement, getUsers, getCreatedUser, getUpdatedUser, getDeletedUser, getPostsStats, getMostLikedPosts };

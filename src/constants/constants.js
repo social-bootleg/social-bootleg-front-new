@@ -3,6 +3,7 @@ export const Config = {
   apiURL: 'http://localhost:5000/',
   endpoints: {
     engagement: '/engagement',
-    postStats: '/posts_stats'
+    postStats: '/posts_stats',
+    mostLikedPosts: '/mostlikedposts'
   }
 }
