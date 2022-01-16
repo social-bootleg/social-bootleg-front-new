@@ -3,8 +3,9 @@ import engagementJSON from './json/engagement.json'
 import postsStatsJSON from './json/posts_stats.json'
 import mostLikedPostsJSON from './json/mostlikedposts.json'
 import topFansJSON from './json/top_fans.json'
+import ghostFollowersJSON from './json/ghost_followers.json'
 import { Config } from "../constants/constants";
-const { apiURL, endpoints: { engagement, postStats, mostLikedPosts, topFans } } = Config;
+const { apiURL, endpoints: { engagement, postStats, mostLikedPosts, topFans, ghostFollowers } } = Config;
 
 function getUsers() {
   const response = axios.get(`${apiURL}/users`);
@@ -110,4 +111,32 @@ const getTopFans = async (user) => {
   }
 }
 
-export { getEngagement, getUsers, getCreatedUser, getUpdatedUser, getDeletedUser, getPostsStats, getMostLikedPosts, getTopFans };
+const getGhostFollowers = async (user) => {
+  try {
+    const { data } = await axios.post(
+      `${apiURL}${ghostFollowers}`,
+      JSON.stringify({ username: user }),
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+    return data;
+  } catch (error) {
+    console.error(`${getGhostFollowers.name} error: ${error}`)
+    return ghostFollowersJSON;
+  }
+}
+
+export {
+  getEngagement,
+  getUsers,
+  getCreatedUser,
+  getUpdatedUser,
+  getDeletedUser,
+  getPostsStats,
+  getMostLikedPosts,
+  getTopFans,
+  getGhostFollowers
+};

@@ -1,10 +1,25 @@
-import ghost_followers from '../../app/json/ghost_followers.json'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getGhostFollowers } from '../../app/api'
+import { Config } from '../../constants/constants';
 
 function GhostFollowers(props) {
+    const [ghost_followers, setGhosts] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await getGhostFollowers(Config.USER);
+                setGhosts(res);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
+
     const ghosts = ghost_followers.map(item =>
         <tr class="row100 body">
-            <td class="cell100 column1">{item.user == '' ? item.username : item.user}</td><td class="cell100 column2"><a href="http://instagram.com/{item.username}">http://instagram.com/{item.username}</a></td>
+            <td class="cell100 column1">{item.user == '' ? item.username : item.user}</td><td class="cell100 column2"><a href={`http://instagram.com/${item.username}`}>http://instagram.com/{item.username}</a></td>
         </tr>);
     // <ListItem key ={title} value={value} />);
     return (

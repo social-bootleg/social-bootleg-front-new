@@ -5,6 +5,7 @@ export const Config = {
     engagement: '/engagement',
     postStats: '/posts_stats',
     mostLikedPosts: '/mostlikedposts',
-    topFans: '/top_fans'
+    topFans: '/top_fans',
+    ghostFollowers: '/ghostfollowers'
   }
 }
